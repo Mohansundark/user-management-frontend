@@ -10,7 +10,8 @@ const Profile: React.FC = () => {
 
   useEffect(() => {
     const fetchProfile = async () => {
-      try {
+        try {
+        
         const response = await api.get('/api/user/profile');
         setProfile(response.data.data);
         setLoading(false);

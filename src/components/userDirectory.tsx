@@ -5,7 +5,8 @@ import { Link, Navigate } from 'react-router-dom';
 const UserDirectory: React.FC = () => {
   const [users, setUsers] = useState<{ id: string, name: string, email: string }[]>([]);
   const [error, setError] = useState('');
-  const [id, setId] = useState('');
+    const [id, setId] = useState('');
+    const [loading, setLoading] = useState(true);
     const [getUserById, setGetUserById] = useState(false);
     const [getUsers, setGetUsers] = useState(false);
 
@@ -13,9 +14,11 @@ const UserDirectory: React.FC = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      try {
+        try {
+          
         const response = await api.get('/api/users');
-        setUsers(response.data.data);
+            setUsers(response.data.data);
+            setLoading(false)
       } catch (err) {
         setError('Failed to fetch users');
       }
@@ -37,22 +40,27 @@ const UserDirectory: React.FC = () => {
     } catch (err) {
       setError('Failed to fetch user');
     }
-  };
+    };
+    if (loading) {
+        return <div className="profile max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">Loading...</div>;
+      }
 
   return (
       <>
-          <div className="user-directory max-w-md mx-auto mt-20 p-6 bg-white rounded-lg shadow-xl">
-          <button className="w-half ml-5 mr-10 p-2 mt-5 mb-6 bg-blue-500 text-white rounded hover:bg-red-600"
+          
+          <div className="user-directory ml-100 max-w-lg mx-auto mt-20 p-6 bg-white rounded-lg ">
+              <Link to = "/home" className="w-half bg-blue-500 text-white px-4 py-2 rounded mr-2 hover:bg-red-600">Home</Link>
+          <button className="w-half ml-5  p-2 mt-5 mb-6 bg-blue-500 text-white rounded hover:bg-red-600"
               onClick={() => { setGetUsers(!getUsers); setGetUserById(false) }}> Get All Users </button>
       <button
-        className="w-half ml-20  p-2 mb-6 bg-red-500 text-white rounded hover:bg-blue-600"
+        className="w-half ml-10  p-2 mb-6 bg-red-500 text-white rounded hover:bg-blue-600"
         onClick={() => setGetUserById(true)}
       >
         Get User By Id
               </button>
               </div>
       {getUserById ? (
-        <form className="user-directory max-w-md mx-auto p-6 bg-white rounded-lg shadow-md" onSubmit={handleSearch}>
+        <form className="user-directory  max-w-md mx-auto p-6 bg-white rounded-lg shadow-md" onSubmit={handleSearch}>
           <input
             type="text"
             placeholder="Enter ID..."
@@ -66,8 +74,9 @@ const UserDirectory: React.FC = () => {
           {error && <p className="text-red-500 mt-2">{error}</p>}
         </form>
       ) : (
-        <div className="user-directory max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
-          <h1 className="text-xl font-bold mb-4">User Directory</h1>
+        <div className="user-directory ml-45 max-w-xl mx-auto p-6 bg-white rounded-lg shadow-md">
+                      <h1 className="text-xl font-bold mb-4">User Directory</h1>
+                      
           {error && <p className="text-red-500 mb-4">{error}</p>}
           <ul>
             {users.map((user) => (
