@@ -1,6 +1,3 @@
-Sure! Here's the updated `README.md` file with the additional `/profile/edit` route for editing the profile:
-
-```markdown
 # User Management System - Frontend
 
 This is the frontend application for the User Management System. It provides a user interface to interact with the backend API for managing users.
