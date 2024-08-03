@@ -3,7 +3,7 @@ import api from '../utils/api';
 import { Link, Navigate } from 'react-router-dom';
 
 const UserDirectory: React.FC = () => {
-  const [users, setUsers] = useState<{ id: string, name: string, email: string, bio: string }[]>([]);
+  const [users, setUsers] = useState<{ _id: string, name: string, email: string, bio: string }[]>([]);
   const [error, setError] = useState('');
     const [id, setId] = useState('');
     const [loading, setLoading] = useState(true);
@@ -74,18 +74,19 @@ const UserDirectory: React.FC = () => {
           {error && <p className="text-red-500 mt-2">{error}</p>}
         </form>
       ) : (
-        <div className="user-directory ml-45 max-w-xl mx-auto p-6 bg-white rounded-lg shadow-md">
-                      <h1 className="text-xl font-bold mb-4">User Directory</h1>
+        <div className="user-directory ml-45 max-w-xl mx-auto p-6 bg-white rounded-lg shadow-md ">
+                      <h1 className="text-xl font-bold mb-4 hover:cursor-pointer">User Directory</h1>
                       
           {error && <p className="text-red-500 mb-4">{error}</p>}
           <ul>
                           {
                               users.map((user) => (
-                <li key={user.id} className="p-2 border-b hover:bg-gray-300">
+                <li key={user._id} className="p-2 border-b hover:bg-gray-300 h">
                 <p >{count++}).</p>
-                <p className="font-bold">{user.name}</p>
-                    <p className="text-gray-600">{user.email}</p>
-                    <p className="text-gray-600">{user.bio}</p>
+                                  <p className="font-bold ">Name : {user.name}</p>
+                                    <p className="text-gray-600">ID : {user._id}</p>
+                    <p className="text-gray-600">Email : {user.email}</p>
+                    <p className="text-gray-600">Bio : {user.bio}</p>
               </li>
             ))}
           </ul>
