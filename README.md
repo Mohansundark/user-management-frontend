@@ -2,6 +2,9 @@
 
 This is the frontend application for the User Management System. It provides a user interface to interact with the backend API for managing users.
 
+[Live Site](https://project1-f2dce.web.app) 
+- It may take some time to get the server up and run ( about 20 - 30 sec ).
+
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
