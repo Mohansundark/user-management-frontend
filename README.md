@@ -14,6 +14,6 @@
   ```bash
   npm install
   ```
- - Create a ```.env``` file as below and paste the backend url from backend repository[(https://github.com/Mohansundark/user-management-backend)]
+ - Create a ```.env``` file as below and paste the backend url from backend repository[https://github.com/Mohansundark/user-management-backend]
    ```bash
    REACT_APP_API_URL = 
