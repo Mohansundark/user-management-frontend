@@ -1,46 +1,83 @@
-# Getting Started with Create React App
+# User Management System - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend application for the User Management System. It provides a user interface to interact with the backend API for managing users.
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+Before you begin, ensure you have met the following requirements:
+- Node.js and npm installed on your machine.
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Follow the steps below to set up and run the frontend application:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 1. Clone the Repository
 
-### `npm test`
+Clone this repository to your local machine using the following command:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+git clone https://github.com/Mohansundark/user-management-frontend.git
+```
 
-### `npm run build`
+### 2. Navigate to the Project Directory
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Go to the project directory:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+cd user-management-frontend
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 3. Install Dependencies
 
-### `npm run eject`
+Install the required dependencies using npm:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+npm install
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 4. Set Up Environment Variables
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Create a `.env` file in the root directory of the project and add the backend URL from the backend repository [user-management-backend](https://github.com/Mohansundark/user-management-backend).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+REACT_APP_API_URL=<your-backend-url>
+```
 
-## Learn More
+Replace `<your-backend-url>` with the actual URL of your backend service.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 5. Start the Development Server
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Run the following command to start the development server:
+
+```bash
+npm start
+```
+
+The application will be accessible at `http://localhost:3000`.
+
+## Project Structure
+
+The main components of the application are:
+
+- `Home`: The homepage of the application.
+- `Login`: The login page for user authentication.
+- `Register`: The registration page for new users.
+- `Profile`: The user profile page.
+- `ProfileEdit`: The profile edit page.
+- `UserDirectory`: A directory listing all users.
+
+## Routes
+
+The application uses `react-router-dom` for routing. The available routes are:
+
+- `/`: Home page.
+- `/login`: Login page.
+- `/register`: Registration page.
+- `/profile`: Profile page.
+- `/profile/edit`: Profile edit page.
+- `/users`: User directory.
+- `*`: Redirects to the home page for any undefined routes.
+
+## Usage
+
+Once the application is running, you can use the user interface to perform various user management operations such as creating , displaying and updating users.
