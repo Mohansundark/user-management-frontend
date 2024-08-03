@@ -3,13 +3,13 @@ import api from '../utils/api';
 import { Link, Navigate } from 'react-router-dom';
 
 const UserDirectory: React.FC = () => {
-  const [users, setUsers] = useState<{ id: string, name: string, email: string }[]>([]);
+  const [users, setUsers] = useState<{ id: string, name: string, email: string, bio: string }[]>([]);
   const [error, setError] = useState('');
     const [id, setId] = useState('');
     const [loading, setLoading] = useState(true);
     const [getUserById, setGetUserById] = useState(false);
     const [getUsers, setGetUsers] = useState(false);
-
+    let [count, setCount] = useState(1);
   const token = localStorage.getItem('token');
 
   useEffect(() => {
@@ -79,10 +79,13 @@ const UserDirectory: React.FC = () => {
                       
           {error && <p className="text-red-500 mb-4">{error}</p>}
           <ul>
-            {users.map((user) => (
-              <li key={user.id} className="p-2 border-b hover:bg-gray-300">
+                          {
+                              users.map((user) => (
+                <li key={user.id} className="p-2 border-b hover:bg-gray-300">
+                <p >{count++}).</p>
                 <p className="font-bold">{user.name}</p>
-                <p className="text-gray-600">{user.email}</p>
+                    <p className="text-gray-600">{user.email}</p>
+                    <p className="text-gray-600">{user.bio}</p>
               </li>
             ))}
           </ul>
