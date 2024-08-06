@@ -41,7 +41,7 @@ const Profile: React.FC = () => {
 
   return (
     <div className="profile max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
-      {/* Include the Logout component */}
+     
       {editing ? (
         <form onSubmit={handleEdit} className="space-y-4">
           <input
@@ -73,7 +73,7 @@ const Profile: React.FC = () => {
           <h1 className="text-xl font-bold">{profile.name}</h1>
           <p className="text-gray-600">{profile.email}</p>
           <p className="text-gray-600">{profile.bio}</p>
-          <div className="flex space-x-10 mt-4"> {/* Add a container with flex and space-x classes */}
+          <div className="flex space-x-10 mt-4">
             <button
               onClick={() => setEditing(true)}
               className="w-half p-2 mb-6 bg-blue-500 text-white rounded hover:bg-blue-600"
