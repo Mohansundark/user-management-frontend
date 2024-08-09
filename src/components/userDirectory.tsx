@@ -20,7 +20,7 @@ const UserDirectory: React.FC = () => {
             setUsers(response.data.data);
             setLoading(false)
       } catch (err) {
-        setError('Failed to fetch users');
+        setError(err.message);
       }
     };
     fetchUsers();
